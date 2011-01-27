@@ -10,10 +10,10 @@ Goal
     Sleep Hacker, I became interested by Lucid Dreaming in the end of 2010. As
     I want to use my computer to its full potential, I'm going to build a smart
     software to manage everything related to Lucid Dreaming
+                                                            - Adrien Lemaire
 
 ..
 
-        *- Adrien Lemaire*
 
 In this program, I plan to do:
 
@@ -37,7 +37,7 @@ Prerequisite
 ------------
 
 - Mac Os X 10.6 [1]_
-- `Python 2.6.X`_
+- `Python 2.6.X`_ 
 - Growl_ (and growlnotify, which is located in the Growl's Extras directory)
 
 
@@ -46,11 +46,16 @@ Installation
 ::
 
     $ pip install -r requirements.txt
+    $ sudo port install py26-pyqt4
     $ #python setup.py install
+    $ mv LaunchAgents/com.apple.RealityCheck.plist ~/Library/LaunchAgents/
+    $ mv bin/reality_check /usr/local/bin/
+    $ mv Pictures/RealityCheck ~/Pictures
+    $ # modify the PYTHONPATH in com.apple.RealityCheck.plist by yours
+    $ # modify the PATH_IMAGE in reality_check by your path::
+    $ launchctl load ~/Library/LaunchAgents/com.apple.RealityCheck.plist
 
-- Move the file com.apple.RealityCheck.plist to ~/Library/LaunchAgents
-- Move the file reality_check to /usr/local/bin
-- Move the file RealityCheck.jpg in ~/Pictures
+* I'll create an installer later *
 
 .. [1] I'll use launchd to manage the startup scripts. Linux users will have to
    adapt it for init.d

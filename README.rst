@@ -31,15 +31,20 @@ Prerequisite
 ------------
 
 - Mac Os X 10.6 [1]_
+- `Python 2.6.X`_
+- Growl_ (and growlnotify, which is located in the Growl's Extras directory)
+
+
+Installation
+------------
+::
+
+    $ pip install -r requirements.txt
+    $ #python setup.py install
+
 
 .. [1] I'll use launchd to manage the startup scripts. Linux users will have to
    adapt it for init.d
 
-- Python 2.6.X
-- Growl (and growlnotify, which is located in the Growl's Extras directory)
-
-Installation
-~~~~~~~~~~~~
-::
-
-    $ pip install -r requirements.txt
+.. _`Python 2.6.X`: http://www.python.org/download/releases/2.6/
+.. _Growl: http://growl.info/index.php

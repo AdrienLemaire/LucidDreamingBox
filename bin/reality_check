@@ -1,0 +1,29 @@
+#!/usr/bin/env python
+# -*- charset:Utf-8 -*-
+
+from localgrowl.growl import Growl
+import sched
+import time
+
+INTERVAL = 3600
+PATH_IMAGE = "/Users/Fandekasp/Pictures/RealityCheck.jpg"
+schedule = sched.scheduler(time.time, time.sleep)
+
+
+def perform_command():
+    schedule.enter(INTERVAL, 0, perform_command, "")  # re-scheduler
+    g = Growl("Reality Check", "Look your hand", image=PATH_IMAGE,
+              sticky=True)  # sticky fix the notification until the user clicks
+                            #on it
+    g.notify()
+
+
+def main():
+    now = time.localtime()
+    #sec_to_wait = (60 - now.tm_min) * 60
+    sec_to_wait = INTERVAL - now.tm_min
+    schedule.enter(sec_to_wait, 0, perform_command, "")
+    schedule.run()
+
+
+main()

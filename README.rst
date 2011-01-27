@@ -27,6 +27,12 @@ In this program, I plan to do:
   data for future statistics
 
 
+What's done yet?
+----------------
+
+- startup script to show a growl notification every hours
+
+
 Prerequisite
 ------------
 
@@ -42,6 +48,9 @@ Installation
     $ pip install -r requirements.txt
     $ #python setup.py install
 
+- Move the file com.apple.RealityCheck.plist to ~/Library/LaunchAgents
+- Move the file reality_check to /usr/local/bin
+- Move the file RealityCheck.jpg in ~/Pictures
 
 .. [1] I'll use launchd to manage the startup scripts. Linux users will have to
    adapt it for init.d

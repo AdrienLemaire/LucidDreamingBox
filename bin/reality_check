@@ -1,12 +1,12 @@
 #!/usr/local/bin/python
 # -*- charset:Utf-8 -*-
 
+
 import os
 
 activate_this = '/Users/Fandekasp/Envs/dream/bin/activate_this.py'
 if os.path.exists(activate_this):
     execfile(activate_this, dict(__file__=activate_this))
-
 
 from localgrowl.growl import Growl
 from threading import Timer
@@ -21,11 +21,10 @@ PATH_IMAGE = "/Users/Fandekasp/Pictures/RealityCheck.jpg"
 LOG_FILE = "/var/log/luciddreaming.log"
 
 
-
 def perform_command():
     #schedule.enter(INTERVAL, 0, perform_command, "")  # re-scheduler
     syslog.syslog(syslog.LOG_ALERT, "New Timer started")
-    Timer(INTERVAL, perform_command, ())
+    Timer(INTERVAL, perform_command, ()).start()
     g = Growl("Reality Check", "Look your hand", image=PATH_IMAGE,
               sticky=True)  # sticky fix the notification until the user clicks
                             #on it
@@ -39,7 +38,7 @@ def main():
     #schedule.enter(sec_to_wait, 0, perform_command, "")
     syslog.syslog(syslog.LOG_ALERT, "First Timer will execute in %s seconds" %\
                  sec_to_wait)
-    Timer(sec_to_wait, perform_command, ())
+    Timer(sec_to_wait, perform_command, ()).start()
     # notification for cardiac respiration
     #Timer(sec_to_wait, perform_command, ())
     #schedule.run()

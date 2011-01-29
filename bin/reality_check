@@ -1,17 +1,31 @@
-#!/usr/bin/env python
+#!/usr/local/bin/python
 # -*- charset:Utf-8 -*-
 
+import os
+
+activate_this = '/Users/Fandekasp/Envs/dream/bin/activate_this.py'
+if os.path.exists(activate_this):
+    execfile(activate_this, dict(__file__=activate_this))
+
+
 from localgrowl.growl import Growl
-import sched
+from threading import Timer
+import syslog
 import time
+#import sched
+#schedule = sched.scheduler(time.time, time.sleep)
+
 
 INTERVAL = 3600
 PATH_IMAGE = "/Users/Fandekasp/Pictures/RealityCheck.jpg"
-schedule = sched.scheduler(time.time, time.sleep)
+LOG_FILE = "/var/log/luciddreaming.log"
+
 
 
 def perform_command():
-    schedule.enter(INTERVAL, 0, perform_command, "")  # re-scheduler
+    #schedule.enter(INTERVAL, 0, perform_command, "")  # re-scheduler
+    syslog.syslog(syslog.LOG_ALERT, "New Timer started")
+    Timer(INTERVAL, perform_command, ())
     g = Growl("Reality Check", "Look your hand", image=PATH_IMAGE,
               sticky=True)  # sticky fix the notification until the user clicks
                             #on it
@@ -20,10 +34,20 @@ def perform_command():
 
 def main():
     now = time.localtime()
-    #sec_to_wait = (60 - now.tm_min) * 60
-    sec_to_wait = INTERVAL - now.tm_min
-    schedule.enter(sec_to_wait, 0, perform_command, "")
-    schedule.run()
+    sec_to_wait = INTERVAL - (now.tm_min * 60 + now.tm_sec)
+    # start messaging every hour for reality check
+    #schedule.enter(sec_to_wait, 0, perform_command, "")
+    syslog.syslog(syslog.LOG_ALERT, "First Timer will execute in %s seconds" %\
+                 sec_to_wait)
+    Timer(sec_to_wait, perform_command, ())
+    # notification for cardiac respiration
+    #Timer(sec_to_wait, perform_command, ())
+    #schedule.run()
 
 
-main()
+if __name__ == "__main__":
+    # Define identifier
+    syslog.openlog("Python")
+    syslog.syslog(syslog.LOG_ALERT, "Start program")
+
+    main()

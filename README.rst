@@ -38,7 +38,7 @@ Prerequisite
 
 - Mac Os X 10.6 [1]_
 - `Python 2.6.X`_ 
-- Growl_ (and growlnotify, which is located in the Growl's Extras directory)
+- Growl_
 
 
 Installation
@@ -46,13 +46,13 @@ Installation
 ::
 
     $ pip install -r requirements.txt
-    $ sudo port install py26-pyqt4
-    $ #python setup.py install
-    $ mv LaunchAgents/com.apple.RealityCheck.plist ~/Library/LaunchAgents/
-    $ mv bin/reality_check /usr/local/bin/
-    $ mv Pictures/RealityCheck ~/Pictures
+    $ brew install sip pyqt growlnotify
+    $ export REP=`pwd`
+    $ cd ~/Library/LaunchAgents/; ln -s $REP/LaunchAgents/com.apple.RealityCheck.plist .
+    $ cd /usr/local/bin/; ln -s $REP/bin/reality_check .
+    $ cd ~/Pictures/; ln -s $REP/Pictures/RealityCheck.jpg .
     $ # modify the PYTHONPATH in com.apple.RealityCheck.plist by yours
-    $ # modify the PATH_IMAGE in reality_check by your path::
+    $ # modify the PATH_IMAGE in reality_check by your path.
     $ launchctl load ~/Library/LaunchAgents/com.apple.RealityCheck.plist
 
 * I'll create an installer later *

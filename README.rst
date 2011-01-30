@@ -48,7 +48,7 @@ Installation
 ::
 
     $ pip install -r requirements.txt
-    $ brew install sip pyqt growlnotify sleepwatcher
+    $ brew install sip growlnotify sleepwatcher
     $ export REP=`pwd`
     $ cd ~/Library/LaunchAgents/; ln -s $REP/LaunchAgents/* .
     $ cd /usr/local/bin/; ln -s $REP/bin/reality_check .

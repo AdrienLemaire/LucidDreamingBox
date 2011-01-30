@@ -3,17 +3,19 @@
 <plist version="1.0">
 <dict>
     <key>Label</key>
-    <string>fr.adrien-lemaire.sleepwatcher</string>
+    <string>fr.fandekasp.sleepwatcher</string>
     <key>ProgramArguments</key>
     <array>
         <string>/usr/local/sbin/sleepwatcher</string>
         <string>-V</string>
-        <string>-s /Users/Fandekasp/Documents/Programming/Python/LucidDreamingBox/bin/morning_alarm.py</string>
+        <string>-s /Users/Fandekasp/Documents/Programming/Python/LucidDreamingBox/bin/sleep.py</string>
         <string>-w /Users/Fandekasp/Documents/Programming/Python/LucidDreamingBox/bin/wake.py</string>
     </array>
     <key>RunAtLoad</key>
     <true/>
     <key>KeepAlive</key>
     <true/>
+    <key>StandardOutPath</key>
+    <string>/var/log/system.log</string>
 </dict>
 </plist>

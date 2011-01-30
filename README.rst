@@ -50,7 +50,8 @@ Installation
     $ pip install -r requirements.txt
     $ brew install sip growlnotify sleepwatcher
     $ export REP=`pwd`
-    $ cd ~/Library/LaunchAgents/; ln -s $REP/LaunchAgents/* .
+    $ cd ~/Library/LaunchAgents/; ln -s $REP/LaunchAgents/fr.fandekasp.RealityCheck.plist .
+    $ cd /Library/LaunchAgents/; ln -s $REP/LaunchAgents/fr.fandekasp.sleepwatcher.plist . # need root privileges
     $ cd /usr/local/bin/; ln -s $REP/bin/reality_check .
     $ cd ~/Pictures/; ln -s $REP/Pictures/RealityCheck.jpg .
     $ # modify the PYTHONPATH in com.apple.RealityCheck.plist by yours

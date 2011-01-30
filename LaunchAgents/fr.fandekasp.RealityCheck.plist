@@ -12,7 +12,7 @@
     <key>RunAtLoad</key>
     <true/>
 	<key>Label</key>
-	<string>com.apple.RealityCheck</string>
+	<string>fr.fandekasp.RealityCheck</string>
 	<key>ProgramArguments</key>
 	<array>
 		<string>/usr/local/bin/reality_check</string>

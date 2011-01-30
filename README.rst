@@ -46,7 +46,7 @@ Installation
 ::
 
     $ pip install -r requirements.txt
-    $ brew install sip pyqt growlnotify
+    $ brew install sip pyqt growlnotify sleepwatcher
     $ export REP=`pwd`
     $ cd ~/Library/LaunchAgents/; ln -s $REP/LaunchAgents/com.apple.RealityCheck.plist .
     $ cd /usr/local/bin/; ln -s $REP/bin/reality_check .
@@ -56,6 +56,16 @@ Installation
     $ launchctl load ~/Library/LaunchAgents/com.apple.RealityCheck.plist
 
 * I'll create an installer later *
+
+
+Configuration
+-------------
+- For the RealityCheck, I think that the best way to remember it during our
+  sleep is to hear a sound. It's unfortunately impossible to play a sound with
+  growlnotify, but I was able to configure growl to play a sound for
+  growlnotify (Apple->System Preferences->Other->Growl).
+
+
 
 .. [1] I'll use launchd to manage the startup scripts. Linux users will have to
    adapt it for init.d

@@ -31,6 +31,8 @@ What's done yet?
 ----------------
 
 - startup script to show a growl notification every hours
+- script which will program a system wake when the system is going to sleep
+- script which will launch iTunes when the system wakes up
 
 
 Prerequisite
@@ -48,7 +50,7 @@ Installation
     $ pip install -r requirements.txt
     $ brew install sip pyqt growlnotify sleepwatcher
     $ export REP=`pwd`
-    $ cd ~/Library/LaunchAgents/; ln -s $REP/LaunchAgents/com.apple.RealityCheck.plist .
+    $ cd ~/Library/LaunchAgents/; ln -s $REP/LaunchAgents/* .
     $ cd /usr/local/bin/; ln -s $REP/bin/reality_check .
     $ cd ~/Pictures/; ln -s $REP/Pictures/RealityCheck.jpg .
     $ # modify the PYTHONPATH in com.apple.RealityCheck.plist by yours

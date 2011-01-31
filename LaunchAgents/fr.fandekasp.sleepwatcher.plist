@@ -15,7 +15,9 @@
     <true/>
     <key>KeepAlive</key>
     <true/>
+    <key>StandardErrorPath</key>
+    <string>/Users/Fandekasp/Documents/Programming/Python/LucidDreamingBox/dream.log</string>
     <key>StandardOutPath</key>
-    <string>/var/log/system.log</string>
+    <string>/Users/Fandekasp/Documents/Programming/Python/LucidDreamingBox/dream.log</string>
 </dict>
 </plist>
